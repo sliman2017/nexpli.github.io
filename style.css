@@ -159,14 +159,15 @@ img{ max-width: 100%; display: block; }
   align-items: center;
   justify-content: space-between;
 }
-.nav-logo{ display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 1.15rem; color: var(--ink); }
+.nav-logo{ display: flex; align-items: center; gap: 11px; font-weight: 700; font-size: 1.3rem; color: var(--ink); }
 .logo-mark{
   display: inline-flex; align-items: center; justify-content: center;
-  width: 30px; height: 30px;
-  border-radius: 9px;
+  width: 42px; height: 42px;
+  border-radius: 11px;
   overflow: hidden;
+  flex: none;
 }
-.logo-mark img{ width: 100%; height: 100%; display: block; }
+.logo-mark svg{ width: 100%; height: 100%; display: block; }
 .nav-links{ display: flex; gap: 32px; font-size: 0.95rem; color: var(--ink-soft); }
 .nav-links a:hover{ color: var(--ink); }
 
@@ -175,8 +176,18 @@ img{ max-width: 100%; display: block; }
 }
 
 /* ---------- Hero ---------- */
-.hero{ padding: 90px 24px 40px; }
-.hero-inner{ max-width: var(--container); margin: 0 auto; text-align: center; }
+.hero{ position: relative; padding: 90px 24px 90px; overflow: hidden; }
+.hero::before{
+  content: "";
+  position: absolute;
+  top: -260px; left: 50%;
+  width: 1100px; height: 700px;
+  transform: translateX(-50%);
+  background: radial-gradient(closest-side, rgba(37,117,252,0.28), rgba(106,17,203,0.18) 55%, transparent 75%);
+  filter: blur(6px);
+  pointer-events: none; z-index: 0;
+}
+.hero-inner{ position: relative; z-index: 1; max-width: var(--container); margin: 0 auto; text-align: center; }
 .hero-title{
   font-family: var(--font-display);
   font-weight: 800;
@@ -203,7 +214,7 @@ img{ max-width: 100%; display: block; }
   max-width: 760px;
   margin: 0 auto;
   border-radius: 18px;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--border);
   box-shadow: 0 40px 80px -30px rgba(0,0,0,0.55);
   text-align: left;
@@ -212,6 +223,7 @@ img{ max-width: 100%; display: block; }
   display: flex; align-items: center; gap: 8px;
   background: var(--bg-2);
   padding: 12px 16px;
+  border-radius: 18px 18px 0 0;
   border-bottom: 1px solid var(--border);
 }
 .dot{ width: 9px; height: 9px; border-radius: 50%; background: var(--border); }
@@ -221,7 +233,7 @@ img{ max-width: 100%; display: block; }
   color: var(--ink-faint);
   margin-left: 8px;
 }
-.demo-body{ position: relative; background: var(--paper); padding: 40px 44px 52px; min-height: 210px; }
+.demo-body{ position: relative; background: var(--paper); padding: 40px 44px 60px; min-height: 210px; border-radius: 0 0 18px 18px; }
 .demo-para{
   font-family: var(--font-serif);
   font-size: 1.15rem;
@@ -230,55 +242,75 @@ img{ max-width: 100%; display: block; }
   margin: 0;
 }
 .demo-line{ display: block; }
-.highlightable{ position: relative; }
+
+/* Selection highlight — matches the real extension's blue text-selection color.
+   Always rendered by default (never depends on JS or scroll position to be
+   visible) — a subtle CSS-only entrance animation is layered on top as
+   polish, using `both` fill-mode so it always lands on the visible end state. */
+.highlightable{ position: relative; z-index: 0; color: #fff; }
 .highlightable::before{
   content: "";
   position: absolute;
-  left: -3px; right: -3px; top: 8%; bottom: 8%;
-  background: var(--yellow);
+  left: -4px; right: -4px; top: 3%; bottom: 3%;
+  background: #3367D1;
   z-index: -1;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.7s cubic-bezier(.4,0,.2,1);
+  animation: sweepIn 0.5s cubic-bezier(.4,0,.2,1) both;
 }
-.demo.in-view .highlightable::before{ transform: scaleX(1); }
+.demo-line:not(.highlightable){ color: var(--paper-ink); }
+
+@keyframes sweepIn{
+  from{ transform: scaleX(0); transform-origin: left; }
+  to{ transform: scaleX(1); transform-origin: left; }
+}
+
+/* Icon + card travel together as one unit, so the icon reads as "attached to"
+   the card instead of floating awkwardly over the paragraph text. Visible by
+   default; the animation is a one-time entrance, not a visibility gate. */
+.demo-popup{
+  position: absolute;
+  right: 20px; bottom: -44px;
+  width: 300px;
+  animation: popIn 0.5s ease-out 0.35s both;
+}
+
+@keyframes popIn{
+  from{ opacity: 0; transform: translateY(16px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
 
 .demo-icon{
   position: absolute;
-  width: 34px; height: 34px;
-  background: var(--gradient);
-  color: #fff;
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
-  top: 128px; left: 320px;
-  opacity: 0; transform: scale(0.5);
-  transition: opacity 0.3s ease 0.8s, transform 0.3s ease 0.8s;
-  box-shadow: 0 8px 18px -6px rgba(98,43,222,0.6);
+  top: -16px; left: -16px;
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  overflow: hidden;
+  z-index: 2;
+  box-shadow: 0 8px 18px -6px rgba(37,117,252,0.55), 0 0 0 3px var(--bg);
 }
-.demo.in-view .demo-icon{ opacity: 1; transform: scale(1); }
+.demo-icon svg{ width: 100%; height: 100%; display: block; }
 
 .demo-card{
-  position: absolute;
-  right: 32px; bottom: -10px;
-  width: 280px;
-  background: var(--surface);
-  color: var(--ink);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 18px 20px;
-  opacity: 0; transform: translateY(16px);
-  transition: opacity 0.4s ease 1.3s, transform 0.4s ease 1.3s;
-  box-shadow: 0 30px 50px -20px rgba(0,0,0,0.55);
+  position: relative;
+  width: 100%;
+  background: #58585F;
+  color: #fff;
+  border-radius: 14px;
+  padding: 16px 18px 14px;
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6);
 }
-.demo.in-view .demo-card{ opacity: 1; transform: translateY(0); }
-.demo-card-label{ font-family: var(--font-mono); font-size: 0.68rem; color: var(--yellow); margin: 0 0 8px; text-transform: uppercase; letter-spacing: 0.05em; }
-.demo-card-text{ margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--ink); }
+.demo-card-head{ display: flex; align-items: center; gap: 8px; margin-bottom: 12px; padding-left: 20px; }
+.demo-card-logo{ display: none; } /* the badge icon above already carries the brand mark */
+.demo-card-label{ flex: 1; margin: 0; font-weight: 700; font-size: 0.92rem; color: #fff; }
+.demo-card-close{ font-size: 1rem; color: rgba(255,255,255,0.45); line-height: 1; }
+.demo-card-heading{ margin: 0 0 12px; font-weight: 700; font-size: 0.94rem; line-height: 1.4; color: #fff; }
+.demo-card-list{ margin: 0 0 12px; padding-left: 18px; list-style: disc; display: flex; flex-direction: column; gap: 6px; }
+.demo-card-list li{ font-size: 0.85rem; line-height: 1.4; color: rgba(255,255,255,0.82); font-family: var(--font-serif); }
+.demo-card-footnote{ margin: 10px 0 0; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.72rem; color: rgba(255,255,255,0.45); font-family: var(--font-mono); }
 
 @media (max-width: 640px){
-  .demo-body{ padding: 28px 22px 90px; }
-  .demo-icon{ top: 108px; left: 60%; }
-  .demo-card{ right: 20px; left: 20px; width: auto; bottom: -70px; }
+  .demo-body{ padding: 28px 22px 120px; }
+  .demo-popup{ right: 16px; left: 16px; width: auto; bottom: -100px; }
+  .demo-icon{ top: -16px; left: 16px; }
 }
 
 /* ---------- Problem ---------- */

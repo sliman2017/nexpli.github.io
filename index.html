@@ -18,7 +18,24 @@
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="#top" class="nav-logo">
-      <span class="logo-mark"><img src="assets/logo.svg" alt=""></span>
+      <span class="logo-mark">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nexpli">
+          <defs>
+            <linearGradient id="grad-nav" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6a11cb"/>
+              <stop offset="100%" stop-color="#2575fc"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="20" width="160" height="160" rx="35" fill="url(#grad-nav)"/>
+          <g transform="translate(50, 60)">
+            <path d="M15 0C6.716 0 0 6.716 0 15v35c0 8.284 6.716 15 15 15h35l18 19.5L86 65h14c8.284 0 15-6.716 15-15V15c0-8.284-6.716-15-15-15H15z" fill="#E6DFF2"/>
+            <rect x="20" y="20" width="60" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+            <rect x="20" y="35" width="45" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+            <rect x="20" y="50" width="30" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+          </g>
+          <polygon points="115 115 140 115 128 140 155 140 105 175 118 145 90 145" fill="#FFD700"/>
+        </svg>
+      </span>
       <span class="logo-word">Nexpli</span>
     </a>
     <nav class="nav-links">
@@ -47,20 +64,66 @@
       <div class="demo" id="demo">
         <div class="demo-chrome">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="demo-url">longarticle.com/the-actual-thing-you-opened</span>
+          <span class="demo-url">yourblog.com/the-post-you-were-reading</span>
         </div>
         <div class="demo-body">
           <p class="demo-para">
-            <span class="demo-line">Quarterly revenue grew across every region we track, with the steepest gains</span>
-            <span class="demo-line">concentrated in enterprise accounts that renewed at higher tiers than</span>
-            <span class="demo-line highlightable">forecast, driven largely by expanded seat counts and a new pricing</span>
-            <span class="demo-line">structure introduced in the second quarter, which the finance team says</span>
-            <span class="demo-line">is now the primary lever for next year's growth targets.</span>
+            <span class="demo-line highlightable">A few years ago, I loved writing code that made me feel smart. Dense</span>
+            <span class="demo-line highlightable">abstractions. Fancy design patterns. Generic types nested inside more</span>
+            <span class="demo-line highlightable">generic types. APIs that looked elegant — at least until I came back six</span>
+            <span class="demo-line highlightable">months later and couldn't remember what I was thinking.</span>
+            <span class="demo-line">These days, my philosophy is much simpler.</span>
           </p>
-          <div class="demo-icon" id="demoIcon">⚡</div>
-          <div class="demo-card" id="demoCard">
-            <p class="demo-card-label">Summary</p>
-            <p class="demo-card-text">Revenue grew fastest in enterprise renewals, thanks to new Q2 pricing — now the main growth lever for next year.</p>
+
+          <div class="demo-popup" id="demoPopup">
+            <div class="demo-icon" id="demoIcon">
+              <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="grad-demoicon" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#6a11cb"/>
+                    <stop offset="100%" stop-color="#2575fc"/>
+                  </linearGradient>
+                </defs>
+                <rect x="20" y="20" width="160" height="160" rx="35" fill="url(#grad-demoicon)"/>
+                <g transform="translate(50, 60)">
+                  <path d="M15 0C6.716 0 0 6.716 0 15v35c0 8.284 6.716 15 15 15h35l18 19.5L86 65h14c8.284 0 15-6.716 15-15V15c0-8.284-6.716-15-15-15H15z" fill="#E6DFF2"/>
+                  <rect x="20" y="20" width="60" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+                  <rect x="20" y="35" width="45" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+                  <rect x="20" y="50" width="30" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+                </g>
+                <polygon points="115 115 140 115 128 140 155 140 105 175 118 145 90 145" fill="#FFD700"/>
+              </svg>
+            </div>
+
+            <div class="demo-card" id="demoCard">
+            <div class="demo-card-head">
+              <span class="demo-card-logo">
+                <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="grad-cardicon" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="#6a11cb"/>
+                      <stop offset="100%" stop-color="#2575fc"/>
+                    </linearGradient>
+                  </defs>
+                  <rect x="20" y="20" width="160" height="160" rx="35" fill="url(#grad-cardicon)"/>
+                  <g transform="translate(50, 60)">
+                    <path d="M15 0C6.716 0 0 6.716 0 15v35c0 8.284 6.716 15 15 15h35l18 19.5L86 65h14c8.284 0 15-6.716 15-15V15c0-8.284-6.716-15-15-15H15z" fill="#E6DFF2"/>
+                  </g>
+                  <polygon points="115 115 140 115 128 140 155 140 105 175 118 145 90 145" fill="#FFD700"/>
+                </svg>
+              </span>
+              <p class="demo-card-label">Summary</p>
+              <span class="demo-card-close" aria-hidden="true">&times;</span>
+            </div>
+            <p class="demo-card-heading">The text is about a developer's shift in coding philosophy.</p>
+            <ul class="demo-card-list">
+              <li>Used to write dense, clever code</li>
+              <li>Struggled to understand it months later</li>
+              <li>Now prioritizes long-term maintainability</li>
+              <li>Simplicity guides every decision</li>
+            </ul>
+            <p class="demo-card-footnote">16/20 free summaries used today</p>
+            </div>
           </div>
         </div>
       </div>
@@ -226,7 +289,24 @@
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <span class="logo-mark"><img src="assets/logo.svg" alt=""></span>
+      <span class="logo-mark">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nexpli">
+          <defs>
+            <linearGradient id="grad-foot" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6a11cb"/>
+              <stop offset="100%" stop-color="#2575fc"/>
+            </linearGradient>
+          </defs>
+          <rect x="20" y="20" width="160" height="160" rx="35" fill="url(#grad-foot)"/>
+          <g transform="translate(50, 60)">
+            <path d="M15 0C6.716 0 0 6.716 0 15v35c0 8.284 6.716 15 15 15h35l18 19.5L86 65h14c8.284 0 15-6.716 15-15V15c0-8.284-6.716-15-15-15H15z" fill="#E6DFF2"/>
+            <rect x="20" y="20" width="60" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+            <rect x="20" y="35" width="45" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+            <rect x="20" y="50" width="30" height="5" rx="2" fill="#6a11cb" opacity="0.8"/>
+          </g>
+          <polygon points="115 115 140 115 128 140 155 140 105 175 118 145 90 145" fill="#FFD700"/>
+        </svg>
+      </span>
       <span class="logo-word">Nexpli</span>
     </div>
     <div class="footer-links">
