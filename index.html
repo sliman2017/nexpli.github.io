@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexpli — Instant Text Summarizer for Chrome</title>
+<meta name="description" content="Highlight any text, get an instant AI summary — without leaving the page. Free to start, no sign-up required.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400;1,6..72,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="nav-logo">
+      <span class="logo-mark"><img src="assets/logo.svg" alt=""></span>
+      <span class="logo-word">Nexpli</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#modes">Modes</a>
+      <a href="#languages">Languages</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="#install" class="btn btn-primary btn-small">Add to Chrome</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Chrome Extension · 5 free summaries, no sign-up</p>
+      <h1 class="hero-title">Stop drowning in text<br>you don't have time to read.</h1>
+      <p class="hero-sub">Highlight any passage, on any page. Nexpli hands you a clear, accurate summary in seconds — right where you're reading. No tab-switching. No new app.</p>
+      <div class="hero-actions">
+        <a href="#install" class="btn btn-primary">Add to Chrome — it's free</a>
+        <a href="#how" class="btn btn-ghost">See how it works ↓</a>
+      </div>
+
+      <div class="demo" id="demo">
+        <div class="demo-chrome">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="demo-url">longarticle.com/the-actual-thing-you-opened</span>
+        </div>
+        <div class="demo-body">
+          <p class="demo-para">
+            <span class="demo-line">Quarterly revenue grew across every region we track, with the steepest gains</span>
+            <span class="demo-line">concentrated in enterprise accounts that renewed at higher tiers than</span>
+            <span class="demo-line highlightable">forecast, driven largely by expanded seat counts and a new pricing</span>
+            <span class="demo-line">structure introduced in the second quarter, which the finance team says</span>
+            <span class="demo-line">is now the primary lever for next year's growth targets.</span>
+          </p>
+          <div class="demo-icon" id="demoIcon">⚡</div>
+          <div class="demo-card" id="demoCard">
+            <p class="demo-card-label">Summary</p>
+            <p class="demo-card-text">Revenue grew fastest in enterprise renewals, thanks to new Q2 pricing — now the main growth lever for next year.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="problem-inner">
+      <div class="problem-text">
+        <p class="eyebrow eyebrow-dark">The actual math</p>
+        <h2>You open 20 tabs.<br>You have time to read 3.</h2>
+        <p class="problem-copy">Every article, thread, and PDF asks for ten minutes you don't have. So you skim, lose the point, or just close the tab and hope it wasn't important.</p>
+      </div>
+      <div class="problem-viz" aria-hidden="true">
+        <div class="viz-row" style="width: 100%"></div>
+        <div class="viz-row" style="width: 92%"></div>
+        <div class="viz-row" style="width: 97%"></div>
+        <div class="viz-row" style="width: 84%"></div>
+        <div class="viz-row" style="width: 90%"></div>
+        <div class="viz-row" style="width: 76%"></div>
+        <div class="viz-row" style="width: 95%"></div>
+        <div class="viz-row viz-highlight" style="width: 61%"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <p class="eyebrow center">How it works</p>
+    <h2 class="section-title center">Three steps. No setup screen.</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Highlight the text</h3>
+        <p>Select any passage on any webpage — an article, an email, a paper, a forum post.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Click the floating icon</h3>
+        <p>It appears right next to your selection. Nothing to open, nothing to configure.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Read your summary</h3>
+        <p>A clean card appears where you're reading. Close it and keep going.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODES -->
+  <section class="modes" id="modes">
+    <p class="eyebrow center">Five ways to read it</p>
+    <h2 class="section-title center">Same paragraph. Different job.</h2>
+    <p class="section-sub center">Pro unlocks five summary modes — the source text never changes, only what you need from it.</p>
+
+    <div class="mode-grid">
+      <div class="mode-card">
+        <p class="mode-name">Very Short</p>
+        <p class="mode-output">"Q2 pricing changes are now driving enterprise growth."</p>
+      </div>
+      <div class="mode-card">
+        <p class="mode-name">Key Points</p>
+        <p class="mode-output">→ Revenue up across all regions<br>→ Enterprise renewals led growth<br>→ New Q2 pricing is the main driver</p>
+      </div>
+      <div class="mode-card">
+        <p class="mode-name">Explain Like I'm 5</p>
+        <p class="mode-output">"The company made more money because more people at big companies started paying for extra stuff."</p>
+      </div>
+      <div class="mode-card">
+        <p class="mode-name">Main Ideas</p>
+        <p class="mode-output">Enterprise renewals + new pricing = the growth engine for next year.</p>
+      </div>
+      <div class="mode-card mode-card-wide">
+        <p class="mode-name">Detailed</p>
+        <p class="mode-output">Revenue grew in every tracked region, led by enterprise accounts renewing at higher tiers. Finance attributes this to expanded seat counts and the Q2 pricing structure, which is now positioned as the primary lever for next year's growth targets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="languages" id="languages">
+    <div class="lang-inner">
+      <p class="eyebrow center">11 languages</p>
+      <h2 class="section-title center">Read in any language.<br>Understand in your own.</h2>
+      <p class="section-sub center">Pro translates any summary into the language you speak — no matter what language the original was written in.</p>
+      <div class="lang-chips">
+        <span class="chip">English</span>
+        <span class="chip">العربية</span>
+        <span class="chip">Français</span>
+        <span class="chip">Español</span>
+        <span class="chip">Deutsch</span>
+        <span class="chip">हिन्दी</span>
+        <span class="chip">中文</span>
+        <span class="chip">日本語</span>
+        <span class="chip">Português</span>
+        <span class="chip">Русский</span>
+        <span class="chip">Türkçe</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZERO SETUP -->
+  <section class="privacy">
+    <div class="privacy-inner">
+      <div class="privacy-diagram" aria-hidden="true">
+        <div class="pd-box">You highlight text</div>
+        <div class="pd-arrow">—— sent securely ——→</div>
+        <div class="pd-box pd-box-dark">Nexpli's backend runs the AI</div>
+        <div class="pd-arrow">—— no key, no setup ——→</div>
+        <div class="pd-box">Your summary appears</div>
+      </div>
+      <div class="privacy-text">
+        <p class="eyebrow eyebrow-dark">No API key. No setup.</p>
+        <h2>You never touch an API key — we run the AI for you.</h2>
+        <p class="problem-copy">There's no AI provider to sign up for and no key to find or paste in. Every summary is processed through Nexpli's own secured backend, and your data is never sold or shared. Full stop.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <p class="eyebrow center">Pricing</p>
+    <h2 class="section-title center">Start free. Stay free, if that's enough.</h2>
+
+    <div class="price-grid">
+      <div class="price-card">
+        <p class="price-name">Free</p>
+        <p class="price-amount">$0</p>
+        <ul class="price-list">
+          <li>5 summaries instantly, no sign-up</li>
+          <li>20 summaries a day with a free account</li>
+          <li>Key Points summary mode</li>
+          <li>Works on any webpage</li>
+        </ul>
+        <a href="#install" class="btn btn-outline">Add to Chrome</a>
+      </div>
+      <div class="price-card price-card-pro">
+        <p class="price-badge">Pro</p>
+        <p class="price-name">Unlimited</p>
+        <p class="price-amount">$5.99</p>
+        <p class="price-period">/month — or $49.99/year</p>
+        <ul class="price-list">
+          <li>Unlimited AI summaries</li>
+          <li>All 6 smart summary modes</li>
+          <li>Translate &amp; summarize in 11 languages</li>
+          <li>Faster AI responses</li>
+        </ul>
+        <a href="#install" class="btn btn-primary">Add to Chrome</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta" id="install">
+    <h2>Install Nexpli.<br>Your first summary is 10 seconds away.</h2>
+    <a href="https://chrome.google.com/webstore" class="btn btn-primary btn-large">Add to Chrome — it's free</a>
+    <p class="final-note">5 summaries free. No account required.</p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark"><img src="assets/logo.svg" alt=""></span>
+      <span class="logo-word">Nexpli</span>
+    </div>
+    <div class="footer-links">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://chrome.google.com/webstore">Chrome Web Store</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <p class="footer-copy">© 2026 Nexpli. Instant Text Summarizer.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
