@@ -1,0 +1,12 @@
+{
+  "name": "Nexpli — Instant Text Summarizer",
+  "short_name": "Nexpli",
+  "description": "Highlight any text and get an instant AI summary without leaving the page.",
+  "icons": [
+    { "src": "assets/favicon.svg", "type": "image/svg+xml", "sizes": "any" }
+  ],
+  "theme_color": "#12132C",
+  "background_color": "#12132C",
+  "display": "browser",
+  "start_url": "/"
+}
